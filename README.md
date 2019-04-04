@@ -15,6 +15,8 @@ http POST https://twilio-koa-mysql-todo-list.now.sh/api/post < post.json
 ### Get
 ```
 http https://twilio-koa-mysql-todo-list.now.sh/api/get
+http https://twilio-koa-mysql-todo-list.now.sh/api/get < get.json
+http https://twilio-koa-mysql-todo-list.now.sh/api/get < error.json
 ```
 ### Update
 ```

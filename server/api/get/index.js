@@ -7,13 +7,19 @@ const app = new Koa()
 app.use(bodyParser())
 
 app.use(async ctx => {
-  const returnedTodos = await getTodos()
-  ctx.body = returnedTodos
+  const getBody = await ctx.request.body
+  const returnedTodos = await getTodos(getBody.todoItem)
+  if (returnedTodos.length) {
+    ctx.body = returnedTodos
+  } else {
+    ctx.status = 500
+    ctx.body = 'No todoItems found!'
+  }
 })
 
-async function getTodos() {
+async function getTodos(todoItem) {
   try {
-    const updatedTodos = await pool.query(`SELECT * FROM todo;`)
+    const updatedTodos = await pool.query(todoItem ? `SELECT * FROM todo WHERE todoItem='${todoItem}';` : `SELECT * FROM todo;`)
     return updatedTodos[0]
   }catch(e){
     console.error(e)
