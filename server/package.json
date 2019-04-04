@@ -1,0 +1,18 @@
+{
+  "name": "twilio-koa-mysql-todo-list",
+  "version": "1.0.0",
+  "description": "Assignment Two - Todo List Backend With Twilio",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Tejisav Brar",
+  "license": "ISC",
+  "dependencies": {
+    "koa": "^2.7.0",
+    "koa-body": "^4.0.8",
+    "mysql2": "^1.6.5",
+    "twilio": "^3.30.0"
+  }
+}
